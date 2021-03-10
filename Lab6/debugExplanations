@@ -1,0 +1,52 @@
+Andrew Logue 10/31/19
+Lab 6 Debug Explanations
+
+helloWorldBuggy.cpp
+1) need to cite: using namespace std; prior to the main funciton
+   so that cout and endl can be used
+2) the final return statement in the main function is missing 
+   a closing semicolon
+
+circleAreaBuggy.cpp
+1) the variable 'radius' was defined as constant, it must be
+   changed to be declared as a regular double type in order to 
+   be assigned a new value via user input
+2) the variable 'area' was not assigned a variable type, it must
+   be assigned a variable type, initializing area as a double type
+   would be the most logical solution
+
+calculatorBuggy.cpp
+1) if num2 is set to 0 by the user, then a floating point 
+   exception error will occur, use a warning message and an 
+   if statement to make sure the user does not enter 0 for num2
+2) initializing num1 and num2 as double types would be much
+   more effective for the division portion of the main funciton
+
+freeFallBuggy.cpp
+1) no user input is recieved by the main function, a cin >>
+   state must be added like the following:
+   cin >> t;
+   *note: variable t must be initialized as a regular int not 
+   a constant first*
+1) varibale 'g' should be initialized as a const double type,
+   otherwise it will hold the value 9 instead of the desired 9.8
+2) the equation for calculating the freefall distance is wrong, 
+   varibale 't' should be squared, and '1/2' should be simplified
+   to '.5'
+   to do this, first include cmath before the main function:
+   #include <cmath>
+   then fix the equation by including the imported power funciton:
+   d = .5 * g * pow(t, 2);
+
+powersBuggy.cpp
+1) include cmath
+   #include <cmath>
+2) cin >> x;
+3) the incrementation of the powers of 'x' is wrong:
+   varibale a should be initialized as 1 not 2, and should
+   increase by 1 for each "x to the power of " statement, not
+   the " is equal to " statements, for example:
+   int x, a=1;
+   cout << "x to the power of " << ++a;
+   cout << " is equal to " << pow(x,a) << endl;
+
